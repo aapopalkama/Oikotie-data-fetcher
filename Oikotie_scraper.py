@@ -14,9 +14,9 @@ def add_latlng(dicts):
 
 def fetch_oikotie(fetch_what):
 #   Create connection to MongoDB
-    client = MongoClient("mongodb+srv://< Username >:< Your pasword >@cluster0.cslgm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-    db = client["Database"]
-    collection = db["Collection"]
+    client = MongoClient("mongodb+srv://palkaap:Nillaniemi123@cluster0.cslgm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    db = client["Apartment_Data"]
+    collection = db["Oikotie"]
 
     start_time = datetime.datetime.now()
     start_date = start_time.strftime("%Y/%m/%d %H:%M:%S")
@@ -150,7 +150,7 @@ def fetch_oikotie(fetch_what):
 
     print("now update those which are inactive") 
     result =  collection.update_many({"timestamp": {"$lt": inactive_time} }, {"$set" : {"Status":"Inactive"}})
-    # starttime plus 60*60*24*2
+
     return length, result.modified_count
 
 
