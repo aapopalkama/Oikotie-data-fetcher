@@ -5,18 +5,18 @@ from webdriver_manager.chrome import ChromeDriverManager
 from pymongo import MongoClient
 import datetime
 
+#   Ignore
 def add_latlng(dicts):
     lat = 66.192
     lng = 24.945
-    # hae googlesta lat,lng tiedot osoitteen perusteella
 
     return lat,lng
 
 def fetch_oikotie(fetch_what):
-    # Create connection to MongoDB
-    client = MongoClient("mongodb+srv://palkaap:Nillaniemi123@cluster0.cslgm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-    db = client["Apartment_Data"]
-    collection = db["Oikotie"]
+#   Create connection to MongoDB
+    client = MongoClient("mongodb+srv://< Username >:< Your pasword >@cluster0.cslgm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    db = client["Database"]
+    collection = db["Collection"]
 
     start_time = datetime.datetime.now()
     start_date = start_time.strftime("%Y/%m/%d %H:%M:%S")
@@ -24,7 +24,7 @@ def fetch_oikotie(fetch_what):
     inactive_time = date_1 + datetime.timedelta(days=-2) 
        
 
-    # Open url in webdriver and search number of pages needed to scrape
+#   Open url in webdriver and search number of pages needed to scrape
     driver = webdriver.Chrome(ChromeDriverManager().install())
     page = "https://asunnot.oikotie.fi/myytavat-asunnot?pagination=1&locations=%5B%5B64,6,%22Helsinki%22%5D%5D&cardType=100"
     driver.get(page)
@@ -37,7 +37,7 @@ def fetch_oikotie(fetch_what):
     result = result[1]
     result = int(result)
 
-    # Make list of urls to scrape
+#   Make list of urls to scrape
     list = []
     for i in range(1,result):
         url_1="https://asunnot.oikotie.fi/myytavat-asunnot?pagination="
@@ -49,12 +49,13 @@ def fetch_oikotie(fetch_what):
     osoite = []
     length = (len(list)-1)
 
-#    length=3
+
     print("First - loop through ",length, "urls")
     for i in list[0:length]:
         url = i
         print("URL:",url)
         driver.get(url)
+#   Time.sleep so u dont get ip ban
         time.sleep(0.5)
         con = driver.page_source
         soup = BeautifulSoup(con,features="html.parser")
@@ -80,12 +81,11 @@ def fetch_oikotie(fetch_what):
     print("second************************",length)
     
     Velaton_hinta = 0
-#    length=5
+
     for url in urls[0:length]:
 
         now = datetime.datetime.now()
         dt_string = now.strftime("%Y/%m/%d %H:%M:%S")
-
         dicts = {}
         dicts["source"] = "oikotie"
         dicts["Status"] = "Active"
