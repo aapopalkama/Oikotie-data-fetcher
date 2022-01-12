@@ -1,5 +1,6 @@
 # Oikotie-data-fetching and analysis
 
-- Programs (Oikotie_scraper and Oikotie_rental_scraper) retrieves data from oikotie.fi and exports the data to mongodb.
-- 
+- Programs Oikotie_scraper and Oikotie_rental_scraper retrieves data from oikotie.fi and exports the data to mongodb.
+- Progrmans Oikotie_analysis and Oikotie_rental_analysis cleans the data and visualizes the current market situation in home sales and rental.
+- Program otie_analysis summarize data and visualize the current housing sales and rental situation in Helsinki
 
