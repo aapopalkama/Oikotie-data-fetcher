@@ -1,4 +1,5 @@
-# Oikotie-data-fetching
+# Oikotie-data-fetching and analysis
 
-- this program retrieves data from oikotie.fi and exports the data to mongodb 
+- Programs (Oikotie_scraper and Oikotie_rental_scraper) retrieves data from oikotie.fi and exports the data to mongodb.
+- 
 
