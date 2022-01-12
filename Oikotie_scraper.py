@@ -14,7 +14,7 @@ def add_latlng(dicts):
 
 def fetch_oikotie(fetch_what):
 #   Create connection to MongoDB
-    client = MongoClient("mongodb+srv://palkaap:Nillaniemi123@cluster0.cslgm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+    client = MongoClient("mongodb+srv://<User>:<Password>@cluster0.cslgm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
     db = client["Apartment_Data"]
     collection = db["Oikotie"]
 
